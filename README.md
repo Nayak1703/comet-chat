@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CometChat Integration with Next.js
 
-## Getting Started
+## Overview
+This project is a Next.js-based assignment that integrates CometChat's one-to-one chat functionality. It enables user signup, login, and real-time messaging between authenticated users.
 
-First, run the development server:
+## Features Implemented
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 1. User Signup
+- A signup page allows new users to register using the **Create User API**:
+  - `https://appid.api-us.cometchat.io/v3/users`
+- Upon successful signup, the user is redirected to the `/login` page.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. User Login
+- The login page accepts the user's **UUID** and validates it using the **User Validation API**:
+  - `https://appid.api-us.cometchat.io/v3/users/uid`
+- After successful login, the user is redirected to `/other-user-id`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 3. Connecting to Another User
+- The `/other-user-id` page allows users to input the UUID of another user to initiate a chat.
+- After validation, users are redirected to the chat page to start messaging in a one-on-one conversation.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Integration Issue Faced
 
-## Learn More
+### Persisting Previous User's Info
+- When logging in with a different user, the previous user's information remains saved.
+- As a result, CometChat sends messages using the previously logged-in user instead of the current one.
 
-To learn more about Next.js, take a look at the following resources:
+## Documentation & Navigation Feedback
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Project Structure Information**
+   - The documentation should include details about the React app structure to help developers understand where changes should be made.
+   - For example, disabling SSR in `index.tsx` can be confusing, as `index.tsx` is typically not used in an App Router setup.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Setup Instructions
 
-## Deploy on Vercel
+### Prerequisites
+- Node.js and npm installed
+- CometChat API credentials
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Installation
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/Nayak1703/comet-chat.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd comet-chat
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Run the development server:
+   ```sh
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Future Improvements
+- Fix the issue of persisting previous user data upon login.
+- Improve UI/UX for better navigation and user experience.
+
+
