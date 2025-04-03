@@ -28,7 +28,7 @@ This project is a Next.js-based assignment that integrates CometChat's one-to-on
 ## Documentation & Navigation Feedback
 
 1. **Project Structure Information**
-   - The documentation should include details about the React app structure to help developers understand where changes should be made.
+   - The documentation should include details about the Next app structure to help developers understand where changes should be made.
    - For example, disabling SSR in `index.tsx` can be confusing, as `index.tsx` is typically not used in an App Router setup.
 
 ## Setup Instructions
